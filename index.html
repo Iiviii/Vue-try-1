@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue</title>
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body class="body">
+        <div class="nav-bar"></div>
+
+
+        <div id="app">
+            <div class="product">
+                <div>
+                    <div class="product-img">
+                        <img v-bind:src="image" alt="image">
+                    </div>
+                    <div class="d-flex">
+                        <div v-for="variant in variants" :key="variant.variantId">
+                            <p class="m" @mouseover="updateProduct(variant.variantImage)">{{ variant.variantColor }}</p>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="product-info">
+                    <h1> {{ product }} </h1>
+                    <h2> i love my {{ product }}</h2>
+                    <p v-if="inventory > 15">on sale</p>
+                    <p v-else-if="inventory <= 15 && inventory > 0">almost sold out!</p>
+                    <p v-else>out of sale</p>
+
+                    <ul>
+                        <li v-for="detail in details">{{ detail }}</li>
+                    </ul>
+
+                    <div class="d-flex">
+                        <button class="m btn" v-on:click="addToCart">Add to card</button>
+                        <div class="m cart">
+                            <p>Cart({{cart}})</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>

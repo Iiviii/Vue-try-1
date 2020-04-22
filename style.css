@@ -1,0 +1,5 @@
+.nav-bar{
+    height: 100px;
+    width: 100%;
+    background-image: linear-gradient(to right, #6495ED , #7FFFD4);
+}
